@@ -3,6 +3,16 @@ import kotlin.math.abs
 fun main() {
     fun part1(input: List<String>): Int {
 
+        val test = input.map {
+            it.split("   ")
+        }.let { splitedList ->
+            val left = splitedList.map { it[0].toInt() }.sorted()
+            val right = splitedList.map { it[1].toInt() }.sorted()
+            left.zip(right) { a, b -> abs(a - b)}.sum()
+        }
+
+        println(test)
+
         val left = mutableListOf<Int>()
         val right = mutableListOf<Int>()
 
